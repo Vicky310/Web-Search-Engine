@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="/CustomSearch/searchPageStyles.css" type="text/css">
-<title>Insert title here</title>
+<title>Search Engine</title>
 </head>
 <body>
-  <form action="searchResults.jsp" class="searchPage">
+  <form action="handleSearch" class="searchPage" method="post">
     <h1>Not Google!</h1>
     <input type="text" name="searchBox" class="searchPage-input">
     <input type="submit" value="Search" class="searchPage-submit">
