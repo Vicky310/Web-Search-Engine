@@ -41,7 +41,7 @@ public class HandleSearch extends HttpServlet {
 			
 		
 		//FileInputStream file = (FileInputStream) getServletContext().getResourceAsStream("urldataset.txt");
-		BufferedReader file = new BufferedReader(new FileReader("D:\\Masters\\Advanced Computing Concepts\\Project\\Web-Search-Engine\\urldataset.txt"));
+		BufferedReader file = new BufferedReader(new FileReader("urldataset.txt"));
 		String url = file.readLine();
 		String content = null;
 		System.out.println("read File");
