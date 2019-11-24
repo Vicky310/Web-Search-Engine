@@ -13,5 +13,10 @@
     <input type="text" name="searchBox" class="searchPage-input">
     <input type="submit" value="Search" class="searchPage-submit">
   </form>
+    <form action="initializeData" class="searchPage" method="post">
+    <h1>Click Initialize button to setup search data!</h1>
+    <input type="text" name="fileName" class="searchPage-input">
+    <input type="submit" value="Initialize Data" class="searchPage-submit">
+  </form>
 </body>
 </html>
