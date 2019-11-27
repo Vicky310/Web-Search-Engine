@@ -18,6 +18,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 import java.net.URL;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,6 +29,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+
+import javaFiles.practiceTrieInvIndex;
 
 /**
  * Servlet implementation class HandleSearch
@@ -50,6 +53,15 @@ public class HandleSearch extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		System.out.println(request.getParameter("searchBox"));
+	    String[] urlResults = new String[10];
+	    practiceTrieInvIndex ptiv = new practiceTrieInvIndex();
+	    ptiv.buildIndex(request);
+	    for(int i = 0; i < ptiv.find(request.getParameter("searchBox"), request).length ; i++)
+	    	urlResults[i] = ptiv.find(request.getParameter("searchBox"), request)[i];
+	    request.setAttribute("urlResults", urlResults);
+		request.setAttribute("results", request.getParameter("searchBox"));
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/searchResults.jsp");
+		requestDispatcher.forward(request, response);
 	}
 }

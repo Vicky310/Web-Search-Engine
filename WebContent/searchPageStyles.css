@@ -33,12 +33,23 @@ body {
   background: #ebc9a2;
 }
 
+
+
+
+
 input, textarea, select, label {
   font-family: inherit;
   font-size: 12px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.searchResults {
+  margin: 50px auto;
+  padding: 18px 20px;
+  width: 200px;
+  background: #808080;
 }
 
 .searchPage {
