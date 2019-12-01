@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <form class="searchResults">
+  <form>
     <h1>Search Results!</h1>
 <c:forEach var="urlResult" items="${urlResults}">
     <td>

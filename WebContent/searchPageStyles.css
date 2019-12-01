@@ -45,12 +45,6 @@ input, textarea, select, label {
   box-sizing: border-box;
 }
 
-.searchResults {
-  margin: 50px auto;
-  padding: 18px 20px;
-  width: 200px;
-  background: #808080;
-}
 
 .searchPage {
   margin: 50px auto;

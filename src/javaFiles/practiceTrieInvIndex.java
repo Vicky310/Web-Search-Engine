@@ -104,7 +104,6 @@ public class practiceTrieInvIndex {
 		System.out.println("res yha hai mc: " + res);
 		if (res.size() == 0) {
 			System.out.println("Not found");
-//			return;
 		}
 		System.out.println("Found in: ");
 
@@ -124,12 +123,6 @@ public class practiceTrieInvIndex {
 
 			
 			KMP kmp = new KMP(phraseNew);
-//			BoyerMoore bm = new BoyerMoore(phraseNew);
-//			BruteForceMatch bfm = new BruteForceMatch();
-			
-//			BufferedReader file = new BufferedReader(new FileReader("/WEB-INF/TextFolder/"+filesWhereWordExists.get(j)));
-//			Path filePath = Paths.get("TextFolder/"+filesWhereWordExists.get(j));
-//			String fileText = new String(Files.readAllBytes(filePath));
 			
 			String fName = "/WEB-INF/TextFolder/"+filesWhereWordExists.get(j);
 			ServletContext cntxt = request.getServletContext();
@@ -142,19 +135,9 @@ public class practiceTrieInvIndex {
 				fileText = word;
 			}
 			
-			
-			
-//			In mydata = new In(filesWhereWordExists.get(j));
-//			System.out.println("anything here?--------");
-//			System.out.println(mydata);
-//			String fileText = mydata.readAll();
-//			System.out.println("here again sire look--------");
-//			System.out.println(fileText);
 			int finalOffset = 0;
 			int count = 0;
 			int offset = kmp.search(fileText);
-//			int offset = bm.search(fileText); 
-//			int offset = bfm.search1(phraseNew, fileText);
 			if (offset == fileText.length()) {
 				System.out.println(phraseNew + " is not found");
 			} else {
@@ -225,20 +208,13 @@ public class practiceTrieInvIndex {
 		 String finalURLArray[] = new String[10]; 
 		 int idk = 0;
 		 for(String al: finalArrayList) {
-			
-//			 BufferedReader file = new BufferedReader(new FileReader("/WEB-INF/TextFolder/"+al));
 			 String fName = "/WEB-INF/TextFolder/"+al;
 			 ServletContext cntxt = request.getServletContext();
 			 InputStream ins = cntxt.getResourceAsStream(fName);
 			 BufferedReader br = new BufferedReader(new InputStreamReader(ins));
 			 String finalURL = br.readLine();
-//			 for(int idk = 0; idk< finalArrayList.size(); idk++) {
-				 finalURLArray[idk] = finalURL;
-				 idk++;
-//			 }
-			 
-			 
-//			 System.out.println(al);
+			 finalURLArray[idk] = finalURL;
+			 idk++;
 			 System.out.println(finalURL);
 			 
 		 }
@@ -248,6 +224,3 @@ public class practiceTrieInvIndex {
 
 }
 
-
-//in the last file I am passing only the refined files to KMP to find the count of word. Like lets say from 1500 words, a word is found only in 30 files then only 
-//30 files are passed to KMP for word count. The word here used is straightway, can be manipulated like refining the words like "what","is","a" amd then passing only the main word.
