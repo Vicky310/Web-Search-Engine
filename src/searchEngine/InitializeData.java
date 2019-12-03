@@ -41,10 +41,6 @@ public class InitializeData extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("This is from Initialize data servlet"+ request.getParameter("fileName"));
-		
-		System.out.println(request.getParameter("searchBox"));
-		System.out.println("Reading URL data set");
 		response.setContentType("text/html");
 		PrintWriter pw = response.getWriter();
 		ServletContext cntxt = getServletContext();
@@ -60,13 +56,11 @@ public class InitializeData extends HttpServlet {
 			int i = 1;
 			int j = 1;
 			while ((word = br.readLine()) != null) {
-				System.out.println(j);
 				Connection.Response execute = Jsoup.connect(word).ignoreHttpErrors(true).timeout(100000).execute();
 				Document doc = Jsoup.parse(execute.body());
 				j++;
 				String webInfPath = getServletConfig().getServletContext().getRealPath("/WEB-INF");
 				File path = new File(webInfPath + "/newFileFolder");
-				System.out.println("New folder name"+path);
 				if (!path.exists()) {
 				    path.mkdirs();
 				}
@@ -78,7 +72,6 @@ public class InitializeData extends HttpServlet {
 				bw.write(doc.text());
 				bw.close();
 			}
-			System.out.println("END!!!!!");
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/searchPage.jsp");
 			requestDispatcher.forward(request, response);
 		}
